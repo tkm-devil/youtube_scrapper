@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Review Page</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="table-users">
+      <div class="header">First Five Videos Info</div>
+
+      <table cellspacing="0">
+        <tr>
+          <th>Title Url</th>
+          <th>Thumbnail Url</th>
+          <th>Titles</th>
+          <th>Views</th>
+          <th>Time of Posting</th>
+        </tr>
+        <tbody>
+          {% for i in range(5) %}
+            <tr>
+              <td>{{ data['First_five_video_urls'][i] }}</td>
+              <td>{{ data['First_five_video_thumbnail_urls'][i] }}</td>
+              <td>{{ data['First_five_titles'][i] }}</td>
+              <td>{{ data['First_five_video_views'][i] }}</td>
+              <td>{{ data['First_five_video_time'][i] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
